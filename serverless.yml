@@ -1,0 +1,15 @@
+service: seed-demo
+
+provider:
+  name: aws
+  runtime: dotnetcore3.1
+
+package:
+  individually: true
+
+functions:
+  hello:
+    handler: CsharpHandlers::AwsDotnetCsharp.Handler::Hello
+
+    package:
+      artifact: bin/release/netcoreapp3.1/hello.zip
