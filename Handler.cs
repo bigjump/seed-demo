@@ -1,3 +1,4 @@
+using Amazon.Lambda.APIGatewayEvents;
 using Amazon.Lambda.Core;
 using System;
 
@@ -5,35 +6,21 @@ using System;
 
 namespace AwsDotnetCsharp
 {
-    public class Handler
+  public class Handler
+  {
+    public Handler()
     {
-       public Response Hello(Request request)
-       {
-           return new Response("Go Serverless v1.0! Your function executed successfully!", request);
-       }
+      Console.WriteLine("boot");
     }
 
-    public class Response
+    public APIGatewayProxyResponse Hello(APIGatewayProxyRequest request)
     {
-      public string Message {get; set;}
-      public Request Request {get; set;}
-
-      public Response(string message, Request request){
-        Message = message;
-        Request = request;
-      }
+      Console.WriteLine(request);
+      return new APIGatewayProxyResponse()
+      {
+        StatusCode = 200,
+        Body = "Go Serverless v1.0! Your function executed successfully!"
+      };
     }
-
-    public class Request
-    {
-      public string Key1 {get; set;}
-      public string Key2 {get; set;}
-      public string Key3 {get; set;}
-
-      public Request(string key1, string key2, string key3){
-        Key1 = key1;
-        Key2 = key2;
-        Key3 = key3;
-      }
-    }
+  }
 }

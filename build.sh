@@ -9,4 +9,4 @@ fi
 
 dotnet tool install -g Amazon.Lambda.Tools
 dotnet restore
-dotnet lambda package --configuration release --framework netcoreapp3.1 --output-package bin/release/netcoreapp3.1/hello.zip
+dotnet lambda package --configuration release --framework netcoreapp3.1 --output-package bin/release/netcoreapp3.1/hello.zip  --msbuild-parameters "/p:PublishReadyToRun=true --self-contained false"

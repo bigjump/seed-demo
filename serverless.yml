@@ -3,6 +3,7 @@ service: seed-demo
 provider:
   name: aws
   runtime: dotnetcore3.1
+  region: eu-west-2
 
 package:
   individually: true
@@ -10,6 +11,10 @@ package:
 functions:
   hello:
     handler: CsharpHandlers::AwsDotnetCsharp.Handler::Hello
-
+    memorySize: 2048
     package:
       artifact: bin/release/netcoreapp3.1/hello.zip
+    events:
+      - http:
+          method: get
+          path: hello
