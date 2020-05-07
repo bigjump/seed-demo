@@ -6,9 +6,19 @@ namespace AwsDotnetCsharp
 {
   public class Handler
   {
-    public string Hello(string name)
+    public MyResponse Hello(MyRequest req)
     {
-      return $"Hello {name}";
+      return new MyResponse() { Message = $"Hello {req.Name}" };
     }
+  }
+
+  public class MyResponse
+  {
+    public string Message { get; set; }
+  }
+
+  public class MyRequest
+  {
+    public string Name { get; set; }
   }
 }
