@@ -3,7 +3,6 @@ service: seed-demo
 provider:
   name: aws
   runtime: dotnetcore3.1
-  profile: commsteamtest
 
 package:
   individually: true
