@@ -11,10 +11,5 @@ package:
 functions:
   hello:
     handler: CsharpHandlers::AwsDotnetCsharp.Handler::Hello
-    memorySize: 2048
     package:
       artifact: bin/release/netcoreapp3.1/hello.zip
-    events:
-      - http:
-          method: get
-          path: hello
